@@ -43,5 +43,17 @@ public class IntermediateOperations {
                 Arrays.asList("cherry", "kiwi")
         );
         System.out.println(listOfList.stream().flatMap(x -> x.stream()).map(String::toUpperCase).toList());
+
+        List<String> sentences = Arrays.asList(
+            "This is my world!",
+            "Hello World!",
+            "Its Ekansh Mahajan"
+        );
+        System.out.println(sentences.stream().
+            flatMap(x -> Arrays.stream(x.split(" "))).
+            map(String::toUpperCase).
+            toList());
+
+        
     }
 }
