@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.*;
 import java.util.function.*;
@@ -13,5 +14,15 @@ public class CollectorsDemo {
         List<Integer> nums = Arrays.asList(1,2,4,5,3,2,2,3,1,4,6,7,3,5,6,8);
         Set<Integer> newNums = nums.stream().collect(Collectors.toSet());
         System.out.println(newNums);
+
+        // 3) Collecting to a Specific Collection
+        ArrayDeque<String> arrNames = names.stream().collect(Collectors.toCollection(() -> new ArrayDeque<>()));
+        System.out.println(arrNames);
+
+        // 4) Joining Strings
+        String concatenatedNames = names.stream().collect(Collectors.joining(", "));
+        System.out.println(concatenatedNames);
+
+        
     }
 }
