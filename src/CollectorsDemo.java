@@ -23,6 +23,13 @@ public class CollectorsDemo {
         String concatenatedNames = names.stream().collect(Collectors.joining(", "));
         System.out.println(concatenatedNames);
 
-        
+        // 5) Summarizing Data
+        IntSummaryStatistics stats = nums.stream().collect(Collectors.summarizingInt(x -> x));
+        System.out.println("Count: "+ stats.getCount());
+        System.out.println("Min: "+ stats.getMin());
+        System.out.println("Max: "+ stats.getMax());
+        System.out.println("Average: "+ stats.getAverage());
+        System.out.println("Sum: "+ stats.getSum());
+
     }
 }
