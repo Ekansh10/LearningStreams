@@ -33,5 +33,15 @@ public class IntermediateOperations {
 
         // 7) Peek -> Performs an action on each element as it is consumed.
         Stream.iterate(1, x -> x + 1). skip(10).limit(100).peek(System.out::println).count();
+
+        // 8) FlatMap -> Handle streams of collections, lists, or arrays where each element is itself a collection
+        // -> Flatten nested structures (e.g. lists within lists) so that they can be processed as a single sequence of eles
+        // Transform and Flatten eles at the same time
+        List<List<String>> listOfList = Arrays.asList(
+                Arrays.asList("apple", "banana"),
+                Arrays.asList("orange", "grapes"),
+                Arrays.asList("cherry", "kiwi")
+        );
+        System.out.println(listOfList.stream().flatMap(x -> x.stream()).map(String::toUpperCase).toList());
     }
 }
