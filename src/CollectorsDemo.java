@@ -49,5 +49,8 @@ public class CollectorsDemo {
         // 9) Partitioning Elements
         System.out.println(names.stream().collect(Collectors.partitioningBy(x -> x.length() > 5)));//will group eles based on predicate {false:[],true:[]}
         
+        //10) Mapping and Collecting
+        System.out.println(names.stream().collect(Collectors.mapping(String::toUpperCase, Collectors.toList())));// Converts eles to uppercase and then collects in list
+        
     }
 }
