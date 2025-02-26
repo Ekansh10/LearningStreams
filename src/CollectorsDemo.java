@@ -40,10 +40,14 @@ public class CollectorsDemo {
         System.out.println("Count: " + count);
 
         // 8) Grouping
-        System.out.println(names.stream().collect(Collectors.groupingBy(x -> x.length())));//will group eles based on their length and length will be key
-        System.out.println(names.stream().collect(Collectors.groupingBy(x -> x.length(), Collectors.counting())));// will perform counting after grouping
-        TreeMap<Integer, Long> mapNames = names.stream().collect(Collectors.groupingBy(x -> x.length(), TreeMap::new, Collectors.counting()));
+        System.out.println(names.stream().collect(Collectors.groupingBy(x -> x.length())));//will group eles based on their length and length will be key (Function)
+        System.out.println(names.stream().collect(Collectors.groupingBy(x -> x.length(), Collectors.counting())));// will perform counting after grouping (Function + Collectors)
+        TreeMap<Integer, Long> mapNames = names.stream().collect(Collectors.groupingBy(x -> x.length(), TreeMap::new, Collectors.counting()));// (Function + Collectors + Supplier)
                                                                                                     //Specific Map Implementation(Supplier it is)
         System.out.println(mapNames);
+
+        // 9) Partitioning Elements
+        System.out.println(names.stream().collect(Collectors.partitioningBy(x -> x.length() > 5)));//will group eles based on predicate {false:[],true:[]}
+        
     }
 }
