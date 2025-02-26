@@ -38,5 +38,12 @@ public class CollectorsDemo {
         // 7) Counting
         Long count = nums.stream().collect(Collectors.counting());
         System.out.println("Count: " + count);
+
+        // 8) Grouping
+        System.out.println(names.stream().collect(Collectors.groupingBy(x -> x.length())));//will group eles based on their length and length will be key
+        System.out.println(names.stream().collect(Collectors.groupingBy(x -> x.length(), Collectors.counting())));// will perform counting after grouping
+        TreeMap<Integer, Long> mapNames = names.stream().collect(Collectors.groupingBy(x -> x.length(), TreeMap::new, Collectors.counting()));
+                                                                                                    //Specific Map Implementation(Supplier it is)
+        System.out.println(mapNames);
     }
 }
