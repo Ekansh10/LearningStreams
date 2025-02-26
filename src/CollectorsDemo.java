@@ -31,5 +31,8 @@ public class CollectorsDemo {
         System.out.println("Average: "+ stats.getAverage());
         System.out.println("Sum: "+ stats.getSum());
 
+        // 6) Averaging
+        Double average = nums.stream().collect(Collectors.averagingDouble(x -> x));
+        System.out.println("Average: "+ average);
     }
 }
