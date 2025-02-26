@@ -27,6 +27,10 @@ public class Practice {
         //OR
         System.out.println(items.values().stream().collect(Collectors.summingInt(x -> x)));
 
+
+        // Question 5: Creating a Map from stream eles
+        System.out.println(names.stream().collect(Collectors.toMap(String::toUpperCase, String::length)));
+
         
     }
 }
