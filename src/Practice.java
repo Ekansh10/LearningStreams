@@ -17,6 +17,16 @@ public class Practice {
         List<Integer> nums = Arrays.asList(1,2,3,4,5,6,7,8,9,10,11);
         System.out.println(nums.stream().collect(Collectors.partitioningBy(x -> x%2==0)));
 
+        // Question 4: Summing Values in a map
+        Map<String, Integer> items = new HashMap<String,Integer>();
+        items.put("Apple", 10);
+        items.put("Banana", 20);
+        items.put("Orange", 15);
+
+        System.out.println(items.values().stream().reduce((x,y)-> x+y).get());//get because out type is Optional
+        //OR
+        System.out.println(items.values().stream().collect(Collectors.summingInt(x -> x)));
+
         
     }
 }
