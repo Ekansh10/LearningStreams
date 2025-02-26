@@ -45,6 +45,13 @@ public class TerminalOperations {
         System.out.println("max: " + Stream.of(3,67,3,24,5,8,9).max(Comparator.naturalOrder()).get());
         System.out.println("min: " + Stream.of(3,67,3,24,5,8,9).min(Comparator.naturalOrder()).get());
 
+
+        // 9) forEachOrdered
+        List<Integer> nums2 = Arrays.asList(1,2,3,4,5,6,7,8,9,0);
+        System.out.println("forEach Output: ");
+        nums2.parallelStream().forEach(System.out::println);
+        System.out.println("forEachOrdered Output: ");
+        nums2.parallelStream().forEachOrdered(System.out::println);
         // Example : Filtering and Collecting Names
         List<String> names = Arrays.asList("Ajay", "Aditya", "Ekansh", "Piyush", "Suyog");
         System.out.println(names.stream().filter(x -> x.length() > 5).collect(Collectors.toList()));
@@ -61,5 +68,13 @@ public class TerminalOperations {
         System.out.println(sentence.chars().filter(x -> x == 'l').count());
 
         names.stream().filter(x -> x.startsWith("A"));
+
+        // Example : Can I do This?
+        Stream<String> s1 = names.stream();
+        s1.forEach(System.out::println); // forEach is a terminal operation (TO)
+        // List<String> l1 = s1.map(String::toLowerCase).toList(); 
+        // No the above line will give exception as stream s1 is already closed by forEach Terminal Operation
+
+
     }
 }
