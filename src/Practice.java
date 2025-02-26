@@ -31,6 +31,11 @@ public class Practice {
         // Question 5: Creating a Map from stream eles
         System.out.println(names.stream().collect(Collectors.toMap(String::toUpperCase, String::length)));
 
+        // Question 6: Occurence of word using merge function in toMap
+        List<String> names2 = Arrays.asList("Ekansh", "Hero", "Jay", "Ekansh", "Atharva", "Parag", "Parag", "Pawan");
+        System.out.println(names2.stream().collect(Collectors.toMap(s -> s, v -> 1, (x, y)-> x+y)));
+                                                                                // This is merge function(BO)
         
+
     }
 }
