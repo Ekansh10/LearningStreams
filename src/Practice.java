@@ -36,6 +36,5 @@ public class Practice {
         System.out.println(names2.stream().collect(Collectors.toMap(s -> s, v -> 1, (x, y)-> x+y)));
                                                                                 // This is merge function(BO)
         
-
     }
 }
