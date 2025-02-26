@@ -34,5 +34,9 @@ public class CollectorsDemo {
         // 6) Averaging
         Double average = nums.stream().collect(Collectors.averagingDouble(x -> x));
         System.out.println("Average: "+ average);
+
+        // 7) Counting
+        Long count = nums.stream().collect(Collectors.counting());
+        System.out.println("Count: " + count);
     }
 }
